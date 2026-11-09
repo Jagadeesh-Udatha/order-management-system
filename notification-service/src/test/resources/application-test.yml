@@ -1,0 +1,12 @@
+spring:
+  kafka:
+    listener:
+      auto-startup: false
+logging:
+  level:
+    root: WARN
+de:
+  flapdoodle:
+    mongodb:
+      embedded:
+        version: 7.0.14
