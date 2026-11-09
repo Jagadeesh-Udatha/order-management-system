@@ -11,16 +11,16 @@ Java 21, Spring Boot 3, Spring Cloud Gateway, Kafka, MySQL, MongoDB, Docker, Kub
 ```mermaid
 flowchart LR
     C[Client] --> G[api-gateway]
-    G --> A[auth-service<br/>MySQL]
-    G --> CAT[catalog-service<br/>MySQL]
-    G --> O[order-service<br/>MySQL]
-    G --> P[payment-service<br/>MySQL]
-    G --> N[notification-service<br/>MongoDB]
-    O -- price lookup (REST) --> CAT
-    O <-- orders / inventory / payments topics --> K[(Kafka)]
+    G --> A["auth-service<br/>MySQL"]
+    G --> CAT["catalog-service<br/>MySQL"]
+    G --> O["order-service<br/>MySQL"]
+    G --> P["payment-service<br/>MySQL"]
+    G --> N["notification-service<br/>MongoDB"]
+    O -->|price lookup over REST| CAT
+    O <-->|orders, inventory and payments events| K[(Kafka)]
     CAT <--> K
     P <--> K
-    N <-- K
+    K --> N
 ```
 
 | Service | Owns | Talks to |
