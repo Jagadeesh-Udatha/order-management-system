@@ -9,4 +9,4 @@ de:
   flapdoodle:
     mongodb:
       embedded:
-        version: 7.0.14
+        version: 8.0.4

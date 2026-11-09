@@ -11,7 +11,7 @@
     <description>Tells customers what happened to their order; keeps the message history in MongoDB</description>
 
     <properties>
-        <de.flapdoodle.mongodb.embedded.version>7.0.14</de.flapdoodle.mongodb.embedded.version>
+        <de.flapdoodle.mongodb.embedded.version>8.0.4</de.flapdoodle.mongodb.embedded.version>
     </properties>
 
     <dependencies>
@@ -24,7 +24,7 @@
         <dependency><groupId>org.springframework.kafka</groupId><artifactId>spring-kafka</artifactId></dependency>
         <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-test</artifactId><scope>test</scope></dependency>
         <dependency><groupId>org.springframework.security</groupId><artifactId>spring-security-test</artifactId><scope>test</scope></dependency>
-        <dependency><groupId>de.flapdoodle.embed</groupId><artifactId>de.flapdoodle.embed.mongo.spring3x</artifactId><version>4.18.0</version><scope>test</scope></dependency>
+        <dependency><groupId>de.flapdoodle.embed</groupId><artifactId>de.flapdoodle.embed.mongo.spring3x</artifactId><version>4.20.0</version><scope>test</scope></dependency>
     </dependencies>
 
     <build>
