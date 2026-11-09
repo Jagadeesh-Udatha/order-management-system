@@ -1,0 +1,35 @@
+server:
+  port: ${PORT:8081}
+spring:
+  application:
+    name: auth-service
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/oms_auth}
+    username: ${DB_USER:oms}
+    password: ${DB_PASSWORD:oms}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        type.preferred_uuid_jdbc_type: CHAR
+        jdbc.time_zone: UTC
+
+oms:
+  jwt:
+    secret: ${JWT_SECRET:local-dev-secret-change-me-0123456789abcdef}
+  auth:
+    token-ttl: 1h
+    admin-email: ${ADMIN_EMAIL:admin@oms.local}
+    admin-password: ${ADMIN_PASSWORD:change-me-admin}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
