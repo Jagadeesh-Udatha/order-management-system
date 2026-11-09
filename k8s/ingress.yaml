@@ -1,0 +1,19 @@
+# Only the gateway is exposed. On EKS this is an AWS Load Balancer Controller ALB.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: oms
+  namespace: oms
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/healthcheck-path: /actuator/health/readiness
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service: { name: api-gateway, port: { number: 80 } }

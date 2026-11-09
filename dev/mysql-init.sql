@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS oms_auth;
+CREATE DATABASE IF NOT EXISTS oms_catalog;
+CREATE DATABASE IF NOT EXISTS oms_orders;
+CREATE DATABASE IF NOT EXISTS oms_payments;
+CREATE USER IF NOT EXISTS 'oms'@'%' IDENTIFIED BY 'oms';
+GRANT ALL PRIVILEGES ON oms_auth.* TO 'oms'@'%';
+GRANT ALL PRIVILEGES ON oms_catalog.* TO 'oms'@'%';
+GRANT ALL PRIVILEGES ON oms_orders.* TO 'oms'@'%';
+GRANT ALL PRIVILEGES ON oms_payments.* TO 'oms'@'%';

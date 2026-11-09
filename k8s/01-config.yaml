@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: oms-config
+  namespace: oms
+data:
+  KAFKA_BOOTSTRAP: "kafka.oms-infra:9092"
+  CATALOG_URL: "http://catalog-service"
+  AUTH_URL: "http://auth-service"
+  ORDER_URL: "http://order-service"
+  PAYMENT_URL: "http://payment-service"
+  NOTIFICATION_URL: "http://notification-service"
+  MONGO_URI: "mongodb://mongo.oms-infra:27017/oms_notifications"
+---
+# Example only. In a real cluster this comes from AWS Secrets Manager (External Secrets) or sealed-secrets, not git.
+apiVersion: v1
+kind: Secret
+metadata:
+  name: oms-secrets
+  namespace: oms
+type: Opaque
+stringData:
+  JWT_SECRET: "replace-with-a-32-byte-random-secret-value"
+  DB_USER: "oms"
+  DB_PASSWORD: "replace-me"
